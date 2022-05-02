@@ -1,0 +1,50 @@
+html, body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.layer1 {
+    background-color: red;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.layer1 .announcing {
+    display: block;
+}
+
+.layer2{
+    background-color: blue;
+    padding: 30px;
+}
+
+.layer2 button{
+    width: 200px;
+}
+
+.layer3{
+    padding: 15px 25%;
+    background-color: yellow;
+    height: 500px;
+}
+
+.layer3 .container {
+    width: 100%;
+    height: 100%;
+}
+
+.layer3 .grid{
+    width: 100%;
+    height: 100%;
+    background-color: brown;
+}
+
+.layer3 .square {
+    width: 30px;
+    height: 30px;
+    background-color: green;
+}
