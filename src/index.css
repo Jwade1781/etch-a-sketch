@@ -1,7 +1,6 @@
 html, body {
     margin: 0px;
     padding: 0px;
-    overflow: hidden;
 }
 
 .layer1 {
@@ -28,8 +27,8 @@ html, body {
 
 .layer3 .container .etchSketch{
     padding: 50px;
-    width: 800px;
-    height: 600px;
+    width: auto;
+    height: auto;
     background-color: #E90418;
     border-radius: 30px;
     display: block;
@@ -37,7 +36,7 @@ html, body {
     
 }
 
-.options {
+.layer3 .etchSketch .options .buttons {
     display: inline-flex;
     
 }
@@ -48,6 +47,7 @@ html, body {
     background-color: #21272b;
     font-family: 'Permanent Marker', cursive;
     color:beige;
+    margin: 10px;
 }
 
 button:hover {
@@ -56,7 +56,7 @@ button:hover {
 
 
 .layer3 .grid{
-    width: 500px;
+    width: 750px;
     height: 500px;
     display: inline-flex;
     flex-wrap: wrap;
@@ -67,4 +67,8 @@ button:hover {
 .layer3 .square {
     width: 50px;
     height: 50px;
+}
+
+.layer3 .rangeSlider {
+    margin-top: 50px;
 }

@@ -7,6 +7,13 @@ window.onload = () => {
 };
 
 function constructGrid(gridNum, randomColor) {
+    // Reconstruct the grid, one was already created
+    if (document.querySelector(".square") !== null){
+        let squares = document.querySelectorAll(".square");
+        squares.forEach((square) => {
+            square.parentNode.removeChild(square);
+        });
+    }
 
     let gridWidth = document.getElementsByClassName('grid')[0].offsetWidth;
     let gridHeight = document.getElementsByClassName('grid')[0].offsetHeight;
@@ -45,9 +52,21 @@ function addEvents(){
     // RANDOM COLOR Button
     btn = document.querySelectorAll(".randomColorBtn")[0];
     btn.addEventListener("click", () => {
-        console.log("Button clicked");
         randomHoverColor ? randomHoverColor = false : randomHoverColor = true;
     });
+
+    // GRID Slider
+    let slider = document.querySelectorAll(".rangeSlider")[0];
+    let sliderOutput = document.querySelectorAll(".sliderOutput")[0];
+    slider.oninput = function() {
+        sliderOutput.textContent = this.value;
+    }
+
+    slider.addEventListener("mouseup", () => {
+        constructGrid(slider.value, randomHoverColor);
+    });
+
+
 }
 
 function getRandomColor() {
@@ -56,4 +75,6 @@ function getRandomColor() {
     var z = Math.floor(Math.random() * 256);
     return "rgb(" + x + "," + y + "," + z + ")";
 }
+
+
 
