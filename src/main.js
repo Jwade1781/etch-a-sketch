@@ -1,15 +1,35 @@
 
 // Construct initial grid
 window.onload = () =>{
-    constructGrid(500);
+    constructGrid(16);
 };
 
 function constructGrid(gridNum){
-    for (let i = 0; i < gridNum; i++){
+
+    let gridWidth = document.getElementsByClassName('grid')[0].offsetWidth;
+    let gridHeight = document.getElementsByClassName('grid')[0].offsetHeight;
+
+    let squareHeight = (gridHeight/gridNum) +"px";
+    let squareWidth = (gridWidth/gridNum) + "px";
+
+    // Create all squares and append to grid
+    for (let i = 0; i < Math.pow(gridNum, 2); i++){
         let grid = document.getElementsByClassName("grid")[0];
         let square = document.createElement("div");
         square.setAttribute("class", "square");
-        square.setAttribute("textContent", "square");
+
+        var x = Math.floor(Math.random() * 256);
+        var y = Math.floor(Math.random() * 256);
+        var z = Math.floor(Math.random() * 256);
+        let color = "rgb(" + x + "," + y + "," + z + ")";
+        square.style.backgroundColor = color;
+
+
+        square.style.height = squareHeight;
+        square.style.width = squareWidth;
+        console.log(squareHeight);
+        console.log(squareWidth);
+
         grid.appendChild(square);
     }
 }
