@@ -49,9 +49,19 @@ function addEvents(){
     // RESET Button
     let btn = document.querySelector(".resetBtn");
     btn.addEventListener("click", () => {
+
         let squares = document.querySelectorAll(".square");
         squares.forEach((square) => {
             randomHoverColor ? square.style.backgroundColor = getRandomColor() : square.style.backgroundColor = "white";
+        });
+
+        const ETCH_SKETCH  = document.querySelector(".etchSketch");
+        const ANIMATION_NAME = "shakeAnimation";
+
+        ETCH_SKETCH.classList.add(ANIMATION_NAME);
+        ETCH_SKETCH.addEventListener("webkitAnimationEnd", () => {
+            console.log("Transition End");
+            ETCH_SKETCH.classList.remove(ANIMATION_NAME);
         });
     });
 
