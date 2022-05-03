@@ -2,7 +2,7 @@ let randomHoverColor = false;
 
 // Construct initial grid
 window.onload = () => {
-    constructGrid(5, false);
+    constructGrid(8, randomHoverColor);
     addEvents();
 };
 
@@ -19,7 +19,7 @@ function constructGrid(gridNum, randomColor) {
         let grid = document.getElementsByClassName("grid")[0];
         let square = document.createElement("div");
         square.setAttribute("class", "square");
-        randomColor ? color = getRandomColor() : color = "white";
+        randomColor? color = getRandomColor() : color = "white";
         square.style.backgroundColor = color;
         square.style.height = squareHeight;
         square.style.width = squareWidth;
@@ -40,6 +40,13 @@ function addEvents(){
         squares.forEach((square) => {
             randomHoverColor ? square.style.backgroundColor = getRandomColor() : square.style.backgroundColor = "white";
         });
+    });
+
+    // RANDOM COLOR Button
+    btn = document.querySelectorAll(".randomColorBtn")[0];
+    btn.addEventListener("click", () => {
+        console.log("Button clicked");
+        randomHoverColor ? randomHoverColor = false : randomHoverColor = true;
     });
 }
 

@@ -5,7 +5,7 @@ html, body {
 }
 
 .layer1 {
-    background-color: red;
+    background-color: green;
 }
 
 .container {
@@ -14,42 +14,57 @@ html, body {
     text-align: center;
 }
 
-.layer1 .announcing {
-    display: block;
-}
-
 .layer2{
     background-color: blue;
     padding: 30px;
 }
 
-.layer2 button{
-    width: 200px;
-}
+
 
 .layer3{
     padding: 15px 25%;
     background-color: yellow;
 }
 
-.layer3 .container {
-
-    width: 500px;
-    height: 500px;
+.layer3 .container .etchSketch{
+    padding: 50px;
+    width: 800px;
+    height: 600px;
+    background-color: #E90418;
+    border-radius: 30px;
+    display: block;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    
 }
 
-.layer3 .grid{
-    width: 100%;
-    height: 100%;
+.options {
     display: inline-flex;
-    /*grid-template-columns: auto auto auto auto;*/
+    
+}
+.layer3 .etchSketch button{
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    background-color: #21272b;
+    font-family: 'Permanent Marker', cursive;
+    color:beige;
+}
+
+button:hover {
+
+}
+
+
+.layer3 .grid{
+    width: 500px;
+    height: 500px;
+    display: inline-flex;
     flex-wrap: wrap;
     background-color: brown;
     padding: 0px;
 }
 
 .layer3 .square {
-    margin: 0px;
     width: 50px;
     height: 50px;
 }
