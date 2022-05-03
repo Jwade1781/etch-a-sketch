@@ -1,41 +1,52 @@
+let randomHoverColor = false;
 
 // Construct initial grid
-window.onload = () =>{
-    constructGrid(32);
+window.onload = () => {
+    constructGrid(5, false);
+    addEvents();
 };
 
-function constructGrid(gridNum){
+function constructGrid(gridNum, randomColor) {
 
     let gridWidth = document.getElementsByClassName('grid')[0].offsetWidth;
     let gridHeight = document.getElementsByClassName('grid')[0].offsetHeight;
 
-    let squareHeight = (gridHeight/gridNum) +"px";
-    let squareWidth = (gridWidth/gridNum) + "px";
+    let squareHeight = (gridHeight / gridNum) + "px";
+    let squareWidth = (gridWidth / gridNum) + "px";
 
     // Create all squares and append to grid
-    for (let i = 0; i < Math.pow(gridNum, 2); i++){
+    for (let i = 0; i < Math.pow(gridNum, 2); i++) {
         let grid = document.getElementsByClassName("grid")[0];
         let square = document.createElement("div");
         square.setAttribute("class", "square");
-
-        var x = Math.floor(Math.random() * 256);
-        var y = Math.floor(Math.random() * 256);
-        var z = Math.floor(Math.random() * 256);
-        let color = "rgb(" + x + "," + y + "," + z + ")";
+        randomColor ? color = getRandomColor() : color = "white";
         square.style.backgroundColor = color;
-
-
         square.style.height = squareHeight;
         square.style.width = squareWidth;
 
+        square.addEventListener("mouseover", () => {
+            randomHoverColor ? square.style.backgroundColor = getRandomColor() : square.style.backgroundColor = "black";
+        });
+
         grid.appendChild(square);
     }
+}
 
-    const squares = document.querySelectorAll(".square");
-    squares.forEach(square => {
-        square.addEventListener("mouseover", () => {
-            square.style.backgroundColor = "black";
+function addEvents(){
+    // RESET Button
+    let btn = document.querySelectorAll(".resetBtn")[0];
+    btn.addEventListener("click", () => {
+        let squares = document.querySelectorAll(".square");
+        squares.forEach((square) => {
+            randomHoverColor ? square.style.backgroundColor = getRandomColor() : square.style.backgroundColor = "white";
         });
     });
+}
+
+function getRandomColor() {
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    return "rgb(" + x + "," + y + "," + z + ")";
 }
 
