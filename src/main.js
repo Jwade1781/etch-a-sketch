@@ -1,7 +1,7 @@
 
 // Construct initial grid
 window.onload = () =>{
-    constructGrid(16);
+    constructGrid(32);
 };
 
 function constructGrid(gridNum){
@@ -27,9 +27,15 @@ function constructGrid(gridNum){
 
         square.style.height = squareHeight;
         square.style.width = squareWidth;
-        console.log(squareHeight);
-        console.log(squareWidth);
 
         grid.appendChild(square);
     }
+
+    const squares = document.querySelectorAll(".square");
+    squares.forEach(square => {
+        square.addEventListener("mouseover", () => {
+            square.style.backgroundColor = "black";
+        });
+    });
 }
+
