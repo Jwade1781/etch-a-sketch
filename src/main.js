@@ -1,9 +1,12 @@
 let randomHoverColor = false;
 
+
 // Construct initial grid
 window.onload = () => {
-    constructGrid(8, randomHoverColor);
+    const STARTING_GRID_NUM = 8;
+    constructGrid(STARTING_GRID_NUM, randomHoverColor);
     addEvents();
+    addDynamicStartingUI();
 };
 
 function constructGrid(gridNum, randomColor) {
@@ -65,8 +68,14 @@ function addEvents(){
     slider.addEventListener("mouseup", () => {
         constructGrid(slider.value, randomHoverColor);
     });
+}
 
+function addDynamicStartingUI(){
+    let slider = document.querySelector(".rangeSlider");
+    let sliderOutput = document.querySelector(".sliderOutput");
 
+    slider.value = Math.sqrt(document.querySelectorAll(".square").length);
+    sliderOutput.textContent = slider.value;
 }
 
 function getRandomColor() {

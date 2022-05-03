@@ -72,3 +72,7 @@ button:hover {
 .layer3 .rangeSlider {
     margin-top: 50px;
 }
+
+.layer3 .gridPicker .rangeSlider, .layer3 .gridPicker .sliderOutput {
+    margin: 5px;
+}
