@@ -30,14 +30,21 @@ html, body {
     background-color: #E90418;
     border-radius: 30px;
     display: block;
+    outline: 0.25px solid black;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     
 }
 
+.layer3 .etchSketch .announcing {
+    animation: fontColorChange 60s ease infinite;
+    font-family: 'Permanent Marker', cursive;
+}
+
 .layer3 .etchSketch .options .buttons {
     display: inline-flex;
-    
 }
+
+
 .layer3 .etchSketch button{
     width: 75px;
     height: 75px;
@@ -49,7 +56,8 @@ html, body {
 }
 
 button:hover {
-
+    background-color: #333;
+    transform: scale(1.1);
 }
 
 
@@ -73,6 +81,10 @@ button:hover {
     margin-top: 50px;
 }
 
+.layer3 .gridPicker:hover{
+    transform: scale(1.5);
+}
+
 .layer3 .gridPicker .rangeSlider, .layer3 .gridPicker .sliderOutput {
     margin: 5px;
 }
@@ -93,5 +105,19 @@ body {
 	}
 	100% {
 		background-position: 0% 50%;
+	}
+}
+
+@keyframes fontColorChange {
+	0% {
+        color: -webkit-linear-gradient(#eee, #333);
+
+	}
+
+    50% {
+        color: white;
+    }
+	100% {
+		color: -webkit-linear-gradient(#333, #eee);
 	}
 }

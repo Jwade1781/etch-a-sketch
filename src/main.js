@@ -1,5 +1,8 @@
 let randomHoverColor = false;
-
+const RANDOM_COLOR_TEXT_MAP = {
+    false: "Black & White",
+    true: "Random Color"
+};
 
 // Construct initial grid
 window.onload = () => {
@@ -55,7 +58,9 @@ function addEvents(){
     // RANDOM COLOR Button
     btn = document.querySelector(".randomColorBtn");
     btn.addEventListener("click", () => {
-        randomHoverColor ? randomHoverColor = false : randomHoverColor = true;
+        (randomHoverColor) ? randomHoverColor = false : randomHoverColor = true;
+        btn.textContent = RANDOM_COLOR_TEXT_MAP[randomHoverColor];
+
     });
 
     // GRID Slider
@@ -71,11 +76,17 @@ function addEvents(){
 }
 
 function addDynamicStartingUI(){
-    let slider = document.querySelector(".rangeSlider");
-    let sliderOutput = document.querySelector(".sliderOutput");
+    const SLIDER = document.querySelector(".rangeSlider");
+    const SLIDER_OUTPUT = document.querySelector(".sliderOutput");
 
-    slider.value = Math.sqrt(document.querySelectorAll(".square").length);
-    sliderOutput.textContent = slider.value;
+    SLIDER.value = Math.sqrt(document.querySelectorAll(".square").length);
+    SLIDER_OUTPUT.textContent = SLIDER.value;
+
+
+    // Random Color Button text
+    const BTN = document.querySelector(".randomColorBtn");
+    BTN.textContent = RANDOM_COLOR_TEXT_MAP[randomHoverColor];
+
 }
 
 function getRandomColor() {
