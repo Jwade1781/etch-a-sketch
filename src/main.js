@@ -15,15 +15,15 @@ function constructGrid(gridNum, randomColor) {
         });
     }
 
-    let gridWidth = document.getElementsByClassName('grid')[0].offsetWidth;
-    let gridHeight = document.getElementsByClassName('grid')[0].offsetHeight;
+    let gridWidth = document.querySelector('.grid').offsetWidth;
+    let gridHeight = document.querySelector('.grid').offsetHeight;
 
     let squareHeight = (gridHeight / gridNum) + "px";
     let squareWidth = (gridWidth / gridNum) + "px";
 
     // Create all squares and append to grid
     for (let i = 0; i < Math.pow(gridNum, 2); i++) {
-        let grid = document.getElementsByClassName("grid")[0];
+        let grid = document.querySelector(".grid");
         let square = document.createElement("div");
         square.setAttribute("class", "square");
         randomColor? color = getRandomColor() : color = "white";
@@ -41,7 +41,7 @@ function constructGrid(gridNum, randomColor) {
 
 function addEvents(){
     // RESET Button
-    let btn = document.querySelectorAll(".resetBtn")[0];
+    let btn = document.querySelector(".resetBtn");
     btn.addEventListener("click", () => {
         let squares = document.querySelectorAll(".square");
         squares.forEach((square) => {
@@ -50,14 +50,14 @@ function addEvents(){
     });
 
     // RANDOM COLOR Button
-    btn = document.querySelectorAll(".randomColorBtn")[0];
+    btn = document.querySelector(".randomColorBtn");
     btn.addEventListener("click", () => {
         randomHoverColor ? randomHoverColor = false : randomHoverColor = true;
     });
 
     // GRID Slider
-    let slider = document.querySelectorAll(".rangeSlider")[0];
-    let sliderOutput = document.querySelectorAll(".sliderOutput")[0];
+    let slider = document.querySelector(".rangeSlider");
+    let sliderOutput = document.querySelector(".sliderOutput");
     slider.oninput = function() {
         sliderOutput.textContent = this.value;
     }
@@ -70,10 +70,7 @@ function addEvents(){
 }
 
 function getRandomColor() {
-    var x = Math.floor(Math.random() * 256);
-    var y = Math.floor(Math.random() * 256);
-    var z = Math.floor(Math.random() * 256);
-    return "rgb(" + x + "," + y + "," + z + ")";
+    return "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")";
 }
 
 
