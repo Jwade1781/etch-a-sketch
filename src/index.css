@@ -14,7 +14,6 @@ html, body {
 }
 
 .layer2{
-    background-color: blue;
     padding: 30px;
 }
 
@@ -22,7 +21,6 @@ html, body {
 
 .layer3{
     padding: 15px 25%;
-    background-color: yellow;
 }
 
 .layer3 .container .etchSketch{
@@ -61,12 +59,14 @@ button:hover {
     display: inline-flex;
     flex-wrap: wrap;
     background-color: brown;
+    outline: 2px inset #333;
     padding: 0px;
 }
 
 .layer3 .square {
     width: 50px;
     height: 50px;
+    outline: 0.25px ridge grey;
 }
 
 .layer3 .rangeSlider {
@@ -75,4 +75,23 @@ button:hover {
 
 .layer3 .gridPicker .rangeSlider, .layer3 .gridPicker .sliderOutput {
     margin: 5px;
+}
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 30s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
