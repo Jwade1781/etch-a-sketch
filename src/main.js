@@ -52,6 +52,14 @@ function addEvents(){
 
         let squares = document.querySelectorAll(".square");
         squares.forEach((square) => {
+            /*
+            const ANIMATION_NAME = "fadeOutAnimation";
+
+            square.classList.add(ANIMATION_NAME);
+            square.addEventListener("webkitAnimationEnd", () => {
+                ETCH_SKETCH.classList.remove(ANIMATION_NAME);
+            });
+            */
             randomHoverColor ? square.style.backgroundColor = getRandomColor() : square.style.backgroundColor = "white";
         });
 
@@ -96,6 +104,39 @@ function addDynamicStartingUI(){
     // Random Color Button text
     const BTN = document.querySelector(".randomColorBtn");
     BTN.textContent = RANDOM_COLOR_TEXT_MAP[randomHoverColor];
+
+    const CIRCLE_TOTAL = 50;
+    for (let i = 0; i < CIRCLE_TOTAL; i++){
+        let circle = document.createElement("li");
+        let circlesContainer = document.querySelector(".circles");
+
+        let leftValue = (Math.random() * 100) + "%;";
+        let widthHeight = (Math.random() * 150) + "px;";
+        let animationDelay = (Math.random() * 5) + "s;";
+        let animationDuration = ((Math.random() * 20) + 3) + "s;";
+
+        circle.classList.add("circle");
+        circle.style.cssText = 
+            "left: " + leftValue + 
+            "width:" + widthHeight + 
+            "height:" + widthHeight + 
+            "animation-delay:" + animationDelay + 
+            "animation-duration:" + animationDuration;
+        
+        circlesContainer.appendChild(circle);
+
+        circle.addEventListener("mousedown", () => {
+            
+            let audio = document.createElement("audio");
+            audio.src = "../data/sound/popEffect.wav";
+            document.body.appendChild(audio);
+            circlesContainer.removeChild(circle);
+            audio.play();
+            audio.onended = () => {
+                document.body.removeChild(audio);
+            }
+        });
+    }
 
 }
 
